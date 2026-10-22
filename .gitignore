@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+.local/
+*.sqlite*
+*.db
+*.log
+.DS_Store
+Thumbs.db
+output/
+work/
+.playwright-cli/

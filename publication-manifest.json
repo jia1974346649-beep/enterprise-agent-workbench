@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "23302dd90b8bb74b44d365fafef8df20f809b61cb347023951ecf60a88a29651"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "85fbd526d31ec861019c2dcbefb929fc24307a192196454922ec27eff2aa8c75"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "f6d95a588b827cc42fa240a7d22fc8819e413be636133d069228b980ef725678"
+    },
+    {
+      "path": "README.md",
+      "sha256": "91a9ad74f3e7114dab7adbbc3274876cb9dd8b97d2b50e951add0be196196865"
+    },
+    {
+      "path": "assets/workbench-desktop.png",
+      "sha256": "732458362a61b9dd631fb3bddcb71b760a7adc82fcd5a66bc27a10483f276d49"
+    },
+    {
+      "path": "assets/workbench-mobile.png",
+      "sha256": "4733c21878d82e6cfda70aa7bb7656612ce51e42cf6e0a458db46617f44d9712"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "5d35b277731b819dddc7a52434c74edcb21576a48c50659ef9e3062bcac8eb0a"
+    },
+    {
+      "path": "docs/contribution.md",
+      "sha256": "9e79a96b57b7fc155b5f04695718b7614154cfb30402a788fa6a04c37e1d6fe9"
+    },
+    {
+      "path": "docs/demo-guide.md",
+      "sha256": "119eef3858c8be7ee237bd7552bc44a37d2d67e9fab9270ccfe90f82ef804b9d"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "a64402b00a872732288d13ae5a050be3562f95de50a56d595dc8834e147771bd"
+    },
+    {
+      "path": "scripts/audit_public_package.py",
+      "sha256": "d11bbf41296ae0132b7f92a62058331502978c4b7b9f02a6528b3a31dc276676"
+    },
+    {
+      "path": "tests/test_domain.py",
+      "sha256": "b8a3f2602bdb077044ff210106dc9bad188ebd4a1200b863070403633a2ae023"
+    },
+    {
+      "path": "tests/test_http.py",
+      "sha256": "598a6b10477f0a6710e7817f697ae0c3086205d8c00961e2151b5775fa1df37b"
+    },
+    {
+      "path": "tests/test_providers.py",
+      "sha256": "5bf53e4f4fc7e70a8763a5d8ee975a7c31860bff6e715a59b0c35877214beb76"
+    },
+    {
+      "path": "tests/test_public_audit.py",
+      "sha256": "bc709a2d85db7bfd85b3874f732374b4c25551c7f01c3e9187eba5600cedcaa6"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "19d15ce9b245ea52097f2ae0238024fa1a49c461d9e2c142155f53d0b144853a"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "fe03712da7a769f8d147dc1d012eac40f7adb3af12cc3926b2a0d906baa9b418"
+    },
+    {
+      "path": "web/styles.css",
+      "sha256": "3f35af45f0732ce3c59736f767434cd56a3c545149c4493771126fd61d0c3557"
+    },
+    {
+      "path": "workbench/__init__.py",
+      "sha256": "5bb2b08f0c7dc64263541d20a340d5a032a97ec5ed17091bb1dfa3d2247c9ece"
+    },
+    {
+      "path": "workbench/__main__.py",
+      "sha256": "ddd60a1df996b2b744c45953165711e5afe2711f5f0249f4e98875e1342411df"
+    },
+    {
+      "path": "workbench/domain.py",
+      "sha256": "ea8aaa3083817fd4a9f17683d4cfb2c2b760fda0152bc4a9520a25330bd48b99"
+    },
+    {
+      "path": "workbench/providers.py",
+      "sha256": "d3b072cc8840303fceaae4e15ac55e23272b26f27bb7410686e47279a19449af"
+    },
+    {
+      "path": "workbench/server.py",
+      "sha256": "2ac28ca6932bd7b004eced838a60ce02637b449381b2bfbf84a67ee690d42f49"
+    }
+  ],
+  "literal_exceptions": {
+    "tests/test_providers.py": [
+      "http://example.invalid",
+      "http://127.0.0.1.evil.invalid",
+      "http://user:password@localhost:11434",
+      "http://0.0.0.0",
+      "http://localhost:bad",
+      "http://127.0.0.1:{server.server_port}"
+    ],
+    "tests/test_http.py": [
+      "https://example.org",
+      "http://[",
+      "0.0.0.0",
+      "http://127.0.0.1:{cls.server.server_port}"
+    ],
+    "workbench/server.py": [
+      "http://{args.host}:{server.server_port}"
+    ]
+  }
+}

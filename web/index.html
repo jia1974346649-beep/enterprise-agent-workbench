@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Agent 工作台 · 匿名流程演示</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23192f2a'/%3E%3Cpath d='M8 24 16 7l8 17M11 18h10' fill='none' stroke='%23c2e6cf' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到工作区</a>
+  <div class="app-shell">
+    <aside class="rail" aria-label="工作台导航">
+      <a class="brand" href="/" aria-label="Agent 工作台首页">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M8 23 16 7l8 16M11 18h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="8" r="3" fill="currentColor"/></svg></span>
+        <span>Agent 工作台<small>匿名流程演示</small></span>
+      </a>
+      <p class="rail-label">WORKSPACE / 演示空间</p>
+      <nav class="nav-list" aria-label="功能页面">
+        <button class="nav-item active" type="button" data-view="workspace" aria-current="page"><span class="nav-symbol" aria-hidden="true">◈</span>执行工作区<span class="nav-index">01</span></button>
+        <button class="nav-item" type="button" data-view="knowledge"><span class="nav-symbol" aria-hidden="true">▤</span>知识与引用<span class="nav-index">02</span></button>
+        <button class="nav-item" type="button" data-view="tasks"><span class="nav-symbol" aria-hidden="true">☷</span>任务清单<span class="nav-index">03</span></button>
+        <button class="nav-item" type="button" data-view="audit"><span class="nav-symbol" aria-hidden="true">◎</span>审计记录<span class="nav-index">04</span></button>
+      </nav>
+      <div class="identity-panel">
+        <label for="actor-select">切换演示身份</label>
+        <select id="actor-select" aria-describedby="identity-note">
+          <option value="alpha-member">A 空间 · 成员</option>
+          <option value="alpha-owner">A 空间 · 所有者</option>
+          <option value="alpha-viewer">A 空间 · 只读访客</option>
+          <option value="beta-owner">B 空间 · 所有者</option>
+        </select>
+        <div class="identity-meta"><span id="actor-role">member</span><span id="actor-tenant">alpha</span></div>
+        <p id="identity-note">固定样例身份，仅演示权限策略；不是真实登录或生产认证。</p>
+      </div>
+      <div class="rail-foot"><span class="status-dot" aria-hidden="true"></span>合成数据 · 本地运行</div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      <header class="topbar"><span class="breadcrumb">作品集演示 <span aria-hidden="true">/</span> 企业 Agent</span><span id="mode-badge" class="mode-badge">离线演示</span></header>
+      <div id="global-error" class="alert error hidden" role="alert"></div>
+
+      <section id="view-workspace" class="view" aria-labelledby="workspace-title">
+        <div class="page-heading"><div><p class="eyebrow">CONTROLLED ACTION, VISIBLE EVIDENCE</p><h1 id="workspace-title">把问题交给 Agent，<br class="mobile-break">把决策留在眼前。</h1><p class="page-description">检索有来源，操作有审批，执行有记录。</p></div><span class="edition">DEMO<br><strong>01</strong></span></div>
+        <div id="mode-notice" class="mode-notice"><span class="notice-icon" aria-hidden="true">i</span><p><strong>默认使用离线演示决策器</strong><span>按固定规则选择工具，不代表真实大模型推理；知识、身份与任务均为合成数据。</span></p></div>
+        <div class="workspace-grid">
+          <div class="conversation-column">
+            <section class="scenario-section" aria-labelledby="scenario-heading">
+              <div class="section-top"><h2 id="scenario-heading">从一个场景开始</h2><span>点击填入问题</span></div>
+              <div class="scenario-grid">
+                <button class="scenario-card" type="button" data-scenario="travel"><span class="scenario-number">01 / 检索</span><strong>报销前，先查规则</strong><span>检索当前空间的报销制度与来源。</span><span class="scenario-arrow" aria-hidden="true">↗</span></button>
+                <button class="scenario-card" type="button" data-scenario="prepare"><span class="scenario-number">02 / 受控操作</span><strong>创建待办，先审批</strong><span>创建动作等待本人批准后执行。</span><span class="scenario-arrow" aria-hidden="true">↗</span></button>
+                <button class="scenario-card" type="button" data-scenario="permission"><span class="scenario-number">03 / 权限</span><strong>只读身份能做什么</strong><span>切换为只读访客，观察写入拒绝。</span><span class="scenario-arrow" aria-hidden="true">↗</span></button>
+                <button class="scenario-card" type="button" data-scenario="isolation"><span class="scenario-number">04 / 参数边界</span><strong>能指定其他空间吗</strong><span>尝试额外指定租户参数，观察拒绝。</span><span class="scenario-arrow" aria-hidden="true">↗</span></button>
+              </div>
+            </section>
+            <section class="execution-panel" aria-labelledby="execution-heading">
+              <div class="section-top execution-top"><h2 id="execution-heading">执行结果</h2><span id="run-status" class="quiet-badge">等待输入</span></div>
+              <div id="run-content" class="run-content" aria-live="polite" aria-busy="false"><div class="empty-state"><span class="empty-icon" aria-hidden="true">↗</span><h3>一次请求，一条可追溯的执行链。</h3><p>尝试查询报销规则，或创建一条需要审批的准备任务。实际步骤和引用会显示在这里。</p></div></div>
+              <form id="run-form" class="composer">
+                <label class="composer-label" for="message">你希望 Agent 做什么？</label>
+                <textarea id="message" name="message" rows="3" maxlength="2000" placeholder="例如：创建一个准备报销材料的任务。" required></textarea>
+                <div class="composer-bottom"><span id="composer-hint">Enter 换行 · Ctrl / ⌘ + Enter 发送</span><button id="send-button" class="button primary" type="submit"><span id="send-label">开始执行</span><span aria-hidden="true">↗</span></button></div>
+                <p class="composer-example">边界示例：输入“导出所有租户”，观察未知工具被拒绝。</p>
+              </form>
+            </section>
+          </div>
+          <aside class="trace-panel" aria-labelledby="trace-heading"><div class="section-top"><h2 id="trace-heading">执行轨迹</h2><span class="trace-tag">TRACE</span></div><p class="trace-description">展示服务端实际返回的步骤。</p><ol id="trace-list" class="trace-list"><li class="trace-empty">执行后显示计划、工具调用和审批状态。</li></ol><div class="boundary-note"><span aria-hidden="true">◇</span><p><strong>可观察的边界</strong>工具按身份和空间授权；写入先审批；每一步保留审计记录。</p></div></aside>
+        </div>
+      </section>
+
+      <section id="view-knowledge" class="view hidden" aria-labelledby="knowledge-title"><div class="page-heading"><div><p class="eyebrow">SCOPED KNOWLEDGE</p><h1 id="knowledge-title">知识与引用</h1><p class="page-description">仅展示当前演示身份所属空间的合成文档。切换 Beta 身份，可观察独立的知识与任务数据。</p></div></div><div id="knowledge-list" class="knowledge-grid"></div></section>
+      <section id="view-tasks" class="view hidden" aria-labelledby="tasks-title"><div class="page-heading"><div><p class="eyebrow">APPROVED ACTIONS</p><h1 id="tasks-title">任务清单</h1><p class="page-description">审批通过的任务会出现在当前空间，切换身份后重新读取。</p></div><button id="refresh-state" type="button" class="button secondary">刷新清单</button></div><div id="tasks-list" class="list-panel"></div></section>
+      <section id="view-audit" class="view hidden" aria-labelledby="audit-title"><div class="page-heading"><div><p class="eyebrow">ACCOUNTABLE EXECUTION</p><h1 id="audit-title">审计记录</h1><p class="page-description">可见范围由服务端权限策略决定，不能在前端扩大。</p></div><button id="refresh-audit" type="button" class="button secondary">刷新记录</button></div><div id="audit-list" class="list-panel"></div><div class="reset-panel"><div><h2>重置当前演示空间</h2><p>清除当前空间的演示状态并恢复种子数据，仅空间所有者可操作。</p></div><button id="reset-button" type="button" class="button danger">重置演示数据</button></div></section>
+      <footer class="page-footer"><span>Agent 工作台 / 匿名作品集演示</span><span>问题 → 工具 → 审批 → 证据</span></footer>
+    </main>
+  </div>
+</body>
+</html>
